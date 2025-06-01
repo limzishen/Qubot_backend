@@ -30,4 +30,12 @@ coverage/ # Test coverage reports
 
 # Other
 .nyc_output/ # for istanbul/nyc test coverage
+
 .eslintcache # ESLint cache file
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
