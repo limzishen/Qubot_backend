@@ -5,10 +5,19 @@ const cookieParser = require('cookie-parser')
 const { testConnection } = require('./src/models')
 const {db} = require('./src/models')
 const userRoutes = require('./src/routes/userRoutes')
+const cors = require('cors'); 
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 
 const app = express();
+
+const corsOptions = {
+    origin: 'http://localhost:3000', // <--- REPLACE with your React app's URL
+    credentials: true, // Allow cookies to be sent with requests
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
+    allowedHeaders: 'Content-Type,Authorization', // Allowed headers
+};
+app.use(cors(corsOptions));
 
 //middleware
 app.use(express.json())
