@@ -2,9 +2,8 @@ const express = require('express')
 const dotenv = require('dotenv').config()
 const cors = require('cors'); 
 const userRoutes = require('./src/routes/userRoutes')
-
-
 const supabase = require('./src/config/supaClient.js')
+const stockRoutes = require('./src/routes/stockRoutes.js')
 
 const PORT = process.env.PORT || 4000
 const app = express();
@@ -13,11 +12,10 @@ const corsOptions = {
     origin: [ 'http://localhost:8080'] // Whitelist the domains you want to allow
 };
 
-app.use(cors(corsOptions));
-
 //middleware
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 //routes for the user API
@@ -29,7 +27,8 @@ app.get('/user', async (req, res) => {
     res.status(200).json(data);
 });
 
-app.use('/api/users', userRoutes)
+app.use('/api/users', userRoutes);
+app.use('/api/stocks', stockRoutes);
 
 //listening to server connection
 app.listen(PORT, () => console.log(`Server is connected on ${PORT}`)); 
