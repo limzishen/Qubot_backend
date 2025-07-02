@@ -4,6 +4,7 @@ const cors = require('cors');
 const userRoutes = require('./src/routes/userRoutes')
 const supabase = require('./src/config/supaClient.js')
 const stockRoutes = require('./src/routes/stockRoutes.js')
+const deepseekRoutes = require('./src/routes/deepseekRoutes.js')
 
 const PORT = process.env.PORT || 4000
 const app = express();
@@ -29,6 +30,7 @@ app.get('/user', async (req, res) => {
 
 app.use('/api/users', userRoutes);
 app.use('/api/stocks', stockRoutes);
+app.use('/api/deepseek', deepseekRoutes); 
 
 //listening to server connection
 app.listen(PORT, () => console.log(`Server is connected on ${PORT}`)); 
