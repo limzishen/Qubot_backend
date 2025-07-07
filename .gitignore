@@ -39,3 +39,4 @@ coverage/ # Test coverage reports
 .env.development
 .env.production
 
+.vercel
