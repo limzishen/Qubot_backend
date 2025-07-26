@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 4000
 const app = express();
 const corsOptions = {
     credentials: true,
-    origin: [ 'http://localhost:8080'] // Whitelist the domains you want to allow
+    origin: [ 'http://localhost:8080', 'https://qubot-frontend.vercel.app/'] // Whitelist the domains you want to allow
 };
 
 //middleware
